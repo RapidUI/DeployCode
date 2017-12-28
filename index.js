@@ -21,10 +21,21 @@ app.get("/update", (req, res) => {
         }
         shell.rm("./pm2.json");
         fs.writeFileSync("./pm2.json", JSON.stringify(pm2File));
-        shell.cd(configs.path);
-        shell.exec("git reset --hard");
-        shell.exec(`git checkout ${branch}`);
-        shell.exec(`git pull ${branch}`);
+        shell.exec(`git add .`);
+        shell.exec(`git commit -m "updating pm2.json file"`);
+        shell.exec(`git push`);        
+        if(!fs.existsSync(configs.path)) {
+            shell.mkdir(configs.path);
+            shell.cd(configs.path);
+            shell.exec(`git clone ${configs.git}`);
+            shell.exec(`git fetch`);
+            shell.exec(`git checkout ${branch}`);
+        } else {
+            shell.cd(configs.path);
+            shell.exec("git reset --hard");
+            shell.exec(`git checkout ${branch}`);
+            shell.exec(`git pull ${branch}`);
+        }
         shell.exec(`pm2 reload ./pm2.json`);
         res.send("your new change is done");
         res.end();
