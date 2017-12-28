@@ -36,7 +36,7 @@ app.get("/update", (req, res) => {
             shell.exec(`git checkout ${branch}`);
             shell.exec(`git pull ${branch}`);
         }
-        shell.exec(`pm2 reload ./pm2.json`);
+        shell.exec(`pm2 reload ${config.pm2_path}`);
         res.send("your new change is done");
         res.end();
     }

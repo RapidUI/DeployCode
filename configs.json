@@ -4,6 +4,11 @@
         "crawler": {
             "path": "~/rapidui/crawler",
             "git" : "https://github.com/RapidUI/TestProj.git"
+        },
+        "DeployCode": {
+            "path": "~/rapidui/DeployCode",
+            "git": "https://github.com/RapidUI/DeployCode.git"
         }
-    }
+    },
+    "pm2_path": "~/rapidui/DeployCode/pm2.json"
 }
