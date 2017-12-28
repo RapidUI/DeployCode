@@ -10,7 +10,7 @@ app.get("/update", (req, res) => {
         res.send("not possible to update this app. doesn't exist");
         res.end();
     } else {
-        const pm2File = JSON.parse(fs.readFileSync("./pm2.json", "utf8"));
+        const pm2File = JSON.parse(fs.readFileSync(config.pm2_path, "utf8"));
         const filtered = pm2File.apps.filter((cApp) => cApp.name === app);
         if(filtered.length === 0) {
             pm2File.apps.push({
@@ -19,8 +19,8 @@ app.get("/update", (req, res) => {
                 watch: true
             });
         }
-        shell.rm("./pm2.json");
-        fs.writeFileSync("./pm2.json", JSON.stringify(pm2File));
+        shell.rm(config.pm2_path);
+        fs.writeFileSync(config.pm2_path, JSON.stringify(pm2File));
         shell.exec(`git add .`);
         shell.exec(`git commit -m "updating pm2.json file"`);
         shell.exec(`git push`);        
