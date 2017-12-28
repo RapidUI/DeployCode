@@ -2,13 +2,13 @@
     "apps": 
     {
         "crawler": {
-            "path": "~/rapidui/crawler",
+            "path": "/root/rapidui/crawler",
             "git" : "https://github.com/RapidUI/TestProj.git"
         },
         "DeployCode": {
-            "path": "~/rapidui/DeployCode",
+            "path": "/root/rapidui/DeployCode",
             "git": "https://github.com/RapidUI/DeployCode.git"
         }
     },
-    "pm2_path": "~/rapidui/DeployCode/pm2.json"
+    "pm2_path": "/root/rapidui/DeployCode/pm2.json"
 }
