@@ -15,7 +15,7 @@ app.get("/update", (req, res) => {
         if(filtered.length === 0) {
             pm2File.apps.push({
                 name: app,
-                scripts:`${configs.path}/index.js`,
+                script:`${configs.path}/index.js`,
                 watch: true
             });
         }
