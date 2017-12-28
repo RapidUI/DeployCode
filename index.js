@@ -23,7 +23,8 @@ app.get("/update", (req, res) => {
         fs.writeFileSync(config.pm2_path, JSON.stringify(pm2File));
         shell.exec(`git add .`);
         shell.exec(`git commit -m "updating pm2.json file"`);
-        shell.exec(`git push`);        
+        shell.exec(`git push`);
+        shell.chmod(777, config.pm2_path);
         if(!fs.existsSync(configs.path)) {
             shell.mkdir(configs.path);
             shell.cd(configs.path);
