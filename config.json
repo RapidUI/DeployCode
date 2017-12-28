@@ -1,9 +1,0 @@
-{
-    "apps": [
-        {
-            "crawler": {
-                "path": "~/rapidui/crawler"
-            }
-        }
-    ]
-}
