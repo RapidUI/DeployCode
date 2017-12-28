@@ -31,13 +31,14 @@ app.get("/update", (req, res) => {
             shell.exec(`git clone ${configs.git} ${configs.path}`);
             shell.exec(`git fetch`);
             shell.exec(`git checkout ${branch}`);
+            shell.exec(`pm2 start ${configs.path}/index.js --name=${app}`);
         } else {
             shell.cd(configs.path);
             shell.exec("git reset --hard");
             shell.exec(`git checkout ${branch}`);
             shell.exec(`git pull`);
+            shell.exec(`pm2 restart ${app}`);
         }
-        shell.exec(`pm2 restart ${app}`);
         res.send("your new change is done");
         res.end();
     }
