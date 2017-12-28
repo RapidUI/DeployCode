@@ -35,7 +35,7 @@ app.get("/update", (req, res) => {
             shell.cd(configs.path);
             shell.exec("git reset --hard");
             shell.exec(`git checkout ${branch}`);
-            shell.exec(`git pull ${branch}`);
+            shell.exec(`git pull`);
         }
         shell.exec(`pm2 restart ${config.pm2_path}`);
         res.send("your new change is done");
