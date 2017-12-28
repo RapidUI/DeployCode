@@ -27,7 +27,7 @@ app.get("/update", (req, res) => {
         if(!fs.existsSync(configs.path)) {
             shell.mkdir(configs.path);
             shell.cd(configs.path);
-            shell.exec(`git clone ${configs.git}`);
+            shell.exec(`git clone ${configs.git} ${configs.path}`);
             shell.exec(`git fetch`);
             shell.exec(`git checkout ${branch}`);
         } else {
