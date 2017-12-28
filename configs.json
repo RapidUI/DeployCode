@@ -3,11 +3,11 @@
     {
         "crawler": {
             "path": "~/rapidui/crawler",
-            "git" : "https://RapidRoman@317143170@github.com/RapidUI/TestProj.git"
+            "git" : "https://RapidRoman:317143170@github.com/RapidUI/TestProj.git"
         },
         "DeployCode": {
             "path": "~/rapidui/DeployCode",
-            "git": "https://RapidRoman@317143170github.com/RapidUI/DeployCode.git"
+            "git": "https://RapidRoman:317143170@github.com/RapidUI/DeployCode.git"
         }
     },
     "pm2_path": "/root/rapidui/DeployCode/pm2.json"
