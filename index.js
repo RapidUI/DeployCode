@@ -21,6 +21,7 @@ app.get("/update", (req, res) => {
         }
         shell.rm(config.pm2_path);
         fs.writeFileSync(config.pm2_path, JSON.stringify(pm2File));
+        shell.cd(config.apps.DeployCode.path);
         shell.exec(`git add .`);
         shell.exec(`git commit -m "updating pm2.json file"`);
         shell.exec(`git push`);
