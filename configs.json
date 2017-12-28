@@ -2,11 +2,11 @@
     "apps": 
     {
         "crawler": {
-            "path": "~/rapidui/crawler",
+            "path": "/root/rapidui/crawler",
             "git" : "https://RapidRoman:317143170@github.com/RapidUI/TestProj.git"
         },
         "DeployCode": {
-            "path": "~/rapidui/DeployCode",
+            "path": "/root/rapidui/DeployCode",
             "git": "https://RapidRoman:317143170@github.com/RapidUI/DeployCode.git"
         }
     },
