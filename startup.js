@@ -1,7 +1,16 @@
 const shell = require("shelljs");
-const config = require("./configs.json");
+let config = require("./configs.json");
 const fs = require("fs");
 let finished = 0;
+
+if(!fs.existsSync("/root/rapidui/DeployCode")) {
+    shell.mkdir("/root/rapidui/DeployCode");
+    shell.exec("git clone git@github.com:RapidUI/DeployCode.git /root/rapidui/DeployCode")
+}
+shell.cd("/root/rapidui/DeployCode");
+shell.exec("git pull");
+shell.exec(`git checkout master`);
+config = JSON.parse(fs.readFileSync("/root/rapidui/DeployCode/configs.json", "utf-8"));
 
 const startup_script = function() {
     return new Promise((resolve) => {
@@ -29,5 +38,7 @@ function done() {
     }
     return false;
 }
+
+shell.
 
 startup_script();
