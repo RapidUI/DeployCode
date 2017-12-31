@@ -47,4 +47,9 @@ app.get("/update", (req, res) => {
     }
 });
 
+app.get("/healthCheck", (req, res) => {
+    res.send("ok");
+    res.end();
+});
+
 app.listen(3000);
