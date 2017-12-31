@@ -14,7 +14,7 @@ const startup_script = function() {
                 shell.cd(configs.path);
                 shell.exec(`git clone ${configs.git} ${configs.path}`);
                 shell.exec(`git fetch`);
-                shell.exec(`git checkout ${branch}`);
+                shell.exec(`git checkout master`);
             }
             finished++;
             if(done()) {
