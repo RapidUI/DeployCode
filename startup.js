@@ -7,7 +7,7 @@ const startup_script = function() {
     return new Promise((resolve) => {
         Object.keys(config.apps).forEach((app) => {
             const configs = config.apps[app];
-            if(!fs.existsSync(configs.path) && app !== "DeployCode") {
+            if(!fs.existsSync(configs.path)) {
                 shell.mkdir(configs.path);
                 shell.cd(configs.path);
                 shell.exec(`git clone ${configs.git} ${configs.path}`);
