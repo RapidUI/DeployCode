@@ -1,3 +1,5 @@
+import { start } from "repl";
+
 const shell = require("shelljs");
 const config = require("./configs.json");
 const fs = require("fs");
@@ -30,4 +32,4 @@ function done() {
     return false;
 }
 
-module.exports = startup_script;
+startup_script();
