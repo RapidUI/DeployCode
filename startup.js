@@ -1,5 +1,3 @@
-import { start } from "repl";
-
 const shell = require("shelljs");
 const config = require("./configs.json");
 const fs = require("fs");
