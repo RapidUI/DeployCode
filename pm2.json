@@ -1,1 +1,1 @@
-{"apps":[{"name":"DeployCode","script":"/root/rapidui/DeployCode/index.js","watch":false}]}
+{"apps":[{"name":"DeployCode","script":"/root/rapidui/DeployCode/index.js","watch":false},{"name":"crawl","script":"/root/rapidui/crawl/index.js","watch":true}]}
