@@ -25,6 +25,7 @@ app.get("/update", (req, res) => {
             shell.exec(`git clone ${configs.git} ${configs.path}`);
             shell.exec(`git fetch`);
             shell.exec(`git checkout ${branch}`);
+            console.log(`starting ${configs.path}/index.js with the name ${app}`);
             shell.exec(`pm2 start ${configs.path}/index.js --name=${app}`);            
             shell.rm(config.pm2_path);
             fs.writeFileSync(config.pm2_path, JSON.stringify(pm2File));
