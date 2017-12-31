@@ -25,6 +25,7 @@ app.get("/update", (req, res) => {
             shell.exec(`git clone ${configs.git} ${configs.path}`);
             shell.exec(`git fetch`);
             shell.exec(`git checkout ${branch}`);
+            shell.exec(`pm2 start ${configs.path}/index.js --name=${app}`);            
             shell.rm(config.pm2_path);
             fs.writeFileSync(config.pm2_path, JSON.stringify(pm2File));
             shell.cd(config.apps.DeployCode.path);
@@ -32,7 +33,6 @@ app.get("/update", (req, res) => {
             shell.exec(`git commit -m "updating pm2.json file"`);
             shell.exec(`git push`);
             shell.chmod(777, config.pm2_path);
-            shell.exec(`pm2 start ${configs.path}/index.js --name=${app}`);
         } else {
             shell.cd(configs.path);
             shell.exec("git reset --hard");
