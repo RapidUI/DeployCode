@@ -19,19 +19,19 @@ app.get("/update", (req, res) => {
                 watch: true
             });
         }
-        shell.rm(config.pm2_path);
-        fs.writeFileSync(config.pm2_path, JSON.stringify(pm2File));
-        shell.cd(config.apps.DeployCode.path);
-        shell.exec(`git add .`);
-        shell.exec(`git commit -m "updating pm2.json file"`);
-        shell.exec(`git push`);
-        shell.chmod(777, config.pm2_path);
         if(!fs.existsSync(configs.path)) {
             shell.mkdir(configs.path);
             shell.cd(configs.path);
             shell.exec(`git clone ${configs.git} ${configs.path}`);
             shell.exec(`git fetch`);
             shell.exec(`git checkout ${branch}`);
+            shell.rm(config.pm2_path);
+            fs.writeFileSync(config.pm2_path, JSON.stringify(pm2File));
+            shell.cd(config.apps.DeployCode.path);
+            shell.exec(`git add .`);
+            shell.exec(`git commit -m "updating pm2.json file"`);
+            shell.exec(`git push`);
+            shell.chmod(777, config.pm2_path);
             shell.exec(`pm2 start ${configs.path}/index.js --name=${app}`);
         } else {
             shell.cd(configs.path);
