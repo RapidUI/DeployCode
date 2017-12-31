@@ -3,7 +3,7 @@ const app = express();
 const shell = require("shelljs");
 const config = require("./configs.json");
 const fs = require("fs");
-require("./startup")
+require("./startup")()
 .then(() => {
     app.get("/update", (req, res) => {
         let { app, branch = "master" } = req.query;

@@ -8,11 +8,11 @@ const startup_script = function() {
         Object.keys(config.apps).forEach((app) => {
             const configs = config.apps[app];
             if(!fs.existsSync(configs.path)) {
-                shell.mkdir(configs.path);
-                shell.cd(configs.path);
-                shell.exec(`git clone ${configs.git} ${configs.path}`);
-                shell.exec(`git fetch`);
-                shell.exec(`git checkout master`);
+                // shell.mkdir(configs.path);
+                // shell.cd(configs.path);
+                // shell.exec(`git clone ${configs.git} ${configs.path}`);
+                // shell.exec(`git fetch`);
+                // shell.exec(`git checkout master`);
             }
             finished++;
             if(done()) {
@@ -30,4 +30,4 @@ function done() {
     return false;
 }
 
-module.exports = startup_script();
+module.exports = startup_script;
